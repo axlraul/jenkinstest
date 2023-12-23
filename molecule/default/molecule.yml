@@ -1,4 +1,25 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
 platforms:
   - name: instance
-    driver:
-      name: docker
+    image: ubuntu:20.04  # Puedes cambiar la imagen según tus necesidades
+    privileged: true
+    command: /sbin/init
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  config_options:
+    defaults:
+      roles_path: ../  # Ajusta la ruta según la estructura de tu proyecto
+verifier:
+  name: testinfra
+  lint:
+    name: flake8

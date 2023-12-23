@@ -5,23 +5,23 @@
 
   tasks:
     - name: Actualizar la lista de paquetes
-      apt:
+      ansible.legacy.apt:
         update_cache: true
       when: ansible_pkg_mgr == 'apt'  #
 
     - name: Instalar Apache
-      apt:
+      ansible.legacy.apt:
         name: apache2
         state: present  # Asegurarse de que el paquete esté instalado
 
     - name: Iniciar y habilitar Apache
-      service:
+      ansible.builtin.service:
         name: apache2
         state: started
         enabled: true  # Habilitar el inicio
 
     - name: Copiar archivo de configuración
-      template:
+      ansible.builtin.template:
         src: apache.conf.j2  # Puedes tener
         dest: /etc/apache2/apache2.conf
       notify:
@@ -29,6 +29,6 @@
 
   handlers:
     - name: Reiniciar Apache
-      service:
+      ansible.builtin.service:
         name: apache2
         state: restarted

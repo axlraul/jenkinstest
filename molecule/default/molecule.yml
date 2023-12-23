@@ -1,22 +1,4 @@
----
-dependency:
-  name: galaxy
-driver:
-  name: docker
 platforms:
-  - name: ubuntu
-    image: geerlingguy/docker-ubuntu2204-ansible
-    command: ${MOLECULE_DOCKER_COMMAND:-""}
-    dockerfile: Dockerfile
-    pre_build_image: false
-    privileged: true
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-provisioner:
-  name: ansible
-verifier:
-  name: ansible
-lint: |
-  set -e
-  yamllint .
-  ansible-lint .
+  - name: instance
+    driver:
+      name: docker

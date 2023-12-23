@@ -4,7 +4,7 @@ dependency:
 driver:
   name: docker
 lint:
-  name: yamllint
+  name: 'yamllint'
 platforms:
   - name: instance
     image: ubuntu:20.04  # Puedes cambiar la imagen según tus necesidades

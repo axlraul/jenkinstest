@@ -6,8 +6,8 @@
   tasks:
     - name: Actualizar la lista de paquetes
       apt:
-        update_cache: yes
-      when: ansible_pkg_mgr == 'apt'  # Se ejecutará solo en sistemas basados en Debian
+        update_cache: true
+      when: ansible_pkg_mgr == 'apt'  #
 
     - name: Instalar Apache
       apt:
@@ -18,14 +18,14 @@
       service:
         name: apache2
         state: started
-        enabled: yes  # Habilitar el inicio automático al arrancar el sistema
+        enabled: true  # Habilitar el inicio 
 
     - name: Copiar archivo de configuración
       template:
-        src: apache.conf.j2  # Puedes tener un archivo de plantilla con variables
+        src: apache.conf.j2  # Puedes tener 
         dest: /etc/apache2/apache2.conf
       notify:
-        - Reiniciar Apache  # Notificar al manejador cuando se copie el archivo de configuración
+        - Reiniciar Apache  # Notificar
 
   handlers:
     - name: Reiniciar Apache

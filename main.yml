@@ -1,6 +1,6 @@
 ---
 - name: Instalar y configurar Apache
-  hosts: servidores_web
+  hosts: 192.168.1.210
   become: true  # Permite ejecutar comandos como sudo
 
   tasks:

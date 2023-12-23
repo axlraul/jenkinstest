@@ -24,6 +24,7 @@
       ansible.builtin.template:
         src: apache.conf.j2  # Puedes tener
         dest: /etc/apache2/apache2.conf
+        mode: 0640
       notify:
         - Reiniciar Apache  # Notificar
 

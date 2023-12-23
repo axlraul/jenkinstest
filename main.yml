@@ -18,11 +18,11 @@
       service:
         name: apache2
         state: started
-        enabled: true  # Habilitar el inicio 
+        enabled: true  # Habilitar el inicio
 
     - name: Copiar archivo de configuración
       template:
-        src: apache.conf.j2  # Puedes tener 
+        src: apache.conf.j2  # Puedes tener
         dest: /etc/apache2/apache2.conf
       notify:
         - Reiniciar Apache  # Notificar

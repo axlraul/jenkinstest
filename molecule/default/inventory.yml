@@ -1,3 +1,4 @@
 ---
-[all]
-localhost
+all:
+  hosts:
+    localhost

@@ -33,5 +33,5 @@
       ansible.builtin.service:
         name: httpd
         state: restarted
-  notify:
-    - Restart apache
+      notify:
+        - Restart apache

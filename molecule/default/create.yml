@@ -25,3 +25,11 @@
               {{ instance_conf | to_json | from_json | to_yaml }}
             dest: "{{ molecule_instance_config }}"
             mode: "0600"
+  handlers:
+    - name: Restart apache
+      ansible.builtin.service:
+        name: httpd  # Adjust the service name as needed
+        state: restarted
+  notify:
+    - Restart apache
+

@@ -1,2 +1,4 @@
-# from galaxy
-- name: yatesr.timezone
+---
+- name: geerlingguy.apache
+  src: https://github.com/geerlingguy/ansible-role-apache
+  version: v5.1.0

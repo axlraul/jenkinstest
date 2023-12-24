@@ -26,7 +26,7 @@
             dest: "{{ molecule_instance_config }}"
             mode: "0600"
       notify:
-      - Restart apache
+        - Restart apache
 
   handlers:
     - name: Restart apache
